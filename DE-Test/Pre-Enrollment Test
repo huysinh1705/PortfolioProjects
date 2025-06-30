@@ -39,7 +39,7 @@ AND MONTH(od.Date_Order) = 9;
 while you need to do daily report, what is your solution?
 
 Solution 1: Avoid SELECT *, avoid subqueries.
-Solution 2: Create indexes on columns used in JOIN conditions
+Solution 2: Create indexes on columns used in JOIN conditions like Order_ID, Client_ID
 
 
 
