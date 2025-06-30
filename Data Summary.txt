@@ -1,0 +1,13 @@
+Category: Finance
+
+Date Added: 01-07-22
+
+# of records: 2001
+
+# of Fields: 30015
+
+This dataset contains information about mortgage loan applications, including borrower income, credit scores, and loan terms. 
+
+
+
+The data can be used to analyze patterns and trends in mortgage lending, and to develop insights into the factors that impact mortgage approval rates and loan performance. By studying this dataset, lenders and policymakers can gain insights into the factors that impact mortgage lending, and can develop effective policies and programs that promote homeownership and access to credit.
