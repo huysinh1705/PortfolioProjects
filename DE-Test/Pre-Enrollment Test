@@ -4,7 +4,7 @@ SELECT
 DATEPART(YEAR, Date_Order) Order_Year,
 DATEPART(MONTH, Date_Order) Order_Month,
 COUNT(DISTINCT Client_ID) Unique_Client_Order,
-COUNT(*) Order_Count
+COUNT(*) Number_of_Orders
 FROM ORDER
 GROUP BY
 DATEPART(YEAR, Date_Order),
@@ -27,8 +27,8 @@ HAVING COUNT(*) > 10
 4. Calculate total good amount and Count number of Order which were delivered in Sep.2019
 
 SELECT
-COUNT(od.Order_ID)  Number of Order,
-SUM(CAST(REPLACE(o.Good_Amount,”.”,””)) AS BIGINT) Total good amount
+COUNT(od.Order_ID)  Number_of_Order,
+SUM(CAST(REPLACE(o.Good_Amount,”.”,””)) AS BIGINT) Total_good_amount
 FROM ORDER o
 INNER JOIN ORDER_DELIVERY od
 ON o.Order_ID = od.Order_ID
@@ -38,8 +38,8 @@ AND MONTH(od.Date_Order) = 9;
 5. Assuming your 2 tables contain a huge amount of data and each join will take about 30 hours,
 while you need to do daily report, what is your solution?
 
-Solution 1: Avoid SELECT *, avoid subqueries.
-Solution 2: Create indexes on columns used in JOIN conditions like Order_ID, Client_ID
+/* Solution 1: Avoid SELECT *, avoid subqueries.
+Solution 2: Create indexes on columns used in JOIN conditions like Order_ID, Client_ID */
 
 
 
