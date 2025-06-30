@@ -1,0 +1,48 @@
+1. Count number of unique client order and number of orders by order month.
+
+SELECT
+DATEPART(YEAR, Date_Order) Order_Year,
+DATEPART(MONTH, Date_Order) Order_Month,
+COUNT(DISTINCT Client_ID) Unique_Client_Order,
+COUNT(*) Order_Count
+FROM ORDER
+GROUP BY
+DATEPART(YEAR, Date_Order),
+DATEPART(MONTH, Date_Order);
+
+2. Get list of client who have more than 10 orders in this year.
+
+SELECT 
+
+Client_ID
+
+FROM ORDER
+
+WHERE YEAR(Date_Order) = YEAR(GETDATE())
+
+GROUP BY Client_ID
+
+HAVING COUNT(*) > 10
+
+3. From the above list of client: get information of first and second last order of client (Order date, good type, and amount)
+
+4. Calculate total good amount and Count number of Order which were delivered in Sep.2019
+
+SELECT
+
+COUNT(od.Order_ID)  Number of Order,
+
+SUM(CAST(REPLACE(o.Good_Amount,”.”,””)) AS BIGINT) Total good amount
+
+FROM ORDER o
+
+INNER JOIN ORDER_DELIVERY od
+
+ON o.Order_ID = od.Order_ID
+
+WHERE YEAR(od.Date_Order) = 2019
+
+AND MONTH(od.Date_Order) = 9;
+
+5. Assuming your 2 tables contain a huge amount of data and each join will take about 30 hours,
+while you need to do daily report, what is your solution?
